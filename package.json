@@ -1,0 +1,27 @@
+{
+  "name": "supertokens-sso-ish",
+  "version": "1.0.0",
+  "description": "A demo app showing how you might create a single sign-on for a set of apps",
+  "main": "index.js",
+  "author": "Alfred Doh-Nani",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/alfreddohnani/supertokens-sso-ish"
+  },
+  "scripts": {
+    "app-one:start": "cd app-one && yarn start",
+    "app-two:start": "cd app-two && yarn start",
+    "auth-app:start": "cd auth-app && yarn start",
+    "api:start": "cd api && yarn start:dev",
+    "app-one:install": "cd app-one && yarn install",
+    "app-two:install": "cd app-two && yarn install",
+    "auth-app:install": "cd auth-app && yarn install",
+    "api:install": "cd api && yarn install",
+    "dev": "concurrently -n 'app-one,app-two,auth-app,api' -c 'yellow,green,blue,orange'  \"yarn app-one:start\" \"yarn app-two:start\" \"yarn auth-app:start\" \"yarn api:start\"",
+    "setup": "concurrently -n 'app-one,app-two,auth-app,api' -c 'yellow,green,blue,orange'  \"yarn app-one:install\" \"yarn app-two:install\" \"yarn auth-app:install\" \"yarn api:install\"",
+    "start": "yarn setup && yarn dev"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
